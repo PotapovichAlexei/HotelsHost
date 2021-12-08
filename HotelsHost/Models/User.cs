@@ -13,5 +13,9 @@ namespace HotelsHost.Models
 
         public Profile Profile { get; set; }
 
+
+        public int? RoleId { get; set; }
+        public Role Role { get; set; }
+
     }
 }

@@ -27,7 +27,6 @@ namespace HotelsHost
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-
             services.AddDbContext<HotelsHostContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("HotelsHostContext")));
 
@@ -36,6 +35,7 @@ namespace HotelsHost
                 .AddCookie(options => //CookieAuthenticationOptions
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
             services.AddControllersWithViews();
         }
